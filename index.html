@@ -5,11 +5,11 @@
 <script type="text/javascript">
 	function goodtimes(){
 		jQuery(".now-playing").load('http://forgetoday.com/wp-content/plugins/showtime/show.php');
-		setTimeout('goodtimes()', 300000);
+		setTimeout("goodtimes()", 300000);
 	}
 	function webcam(){
-		jQuery(".webcam").attr('src','http://forgewebcam.site11.com/webcam/cam_1.jpg?' + new Date().valueOf());
-		setTimeout('webcam()', 30000);
+		jQuery(".webcam").attr('src','http://forgetoday.com/webcam/cam_1.jpg?' + new Date().valueOf());
+		setTimeout("webcam()", 30000);
 	}
 	jQuery(document).ready(function($) {
 		$(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
@@ -17,7 +17,6 @@
 		webcam();
 	});
 </script>
-
 <style type="text/css">
 body {
 	margin: 10px;
@@ -40,14 +39,13 @@ body {
 }
 </style>
 </head>
-
-<body background="http://imageshack.us/photo/my-images/6/playerbackz.jpg"> 
+<body>
 <p><img src="http://www.forgetoday.com/player/nowplay.png" alt="Listen Live" /></p>
 <p><img class="webcam" /></p>
 <p><div class="now-playing"></div></p>
 <p>
-<object type="application/x-shockwave-flash" width="320" height="20" data="http://forgetoday.info/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-the-Media-Hub">
-<param name="movie" value="http://forgetoday.info/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-The-Media-Hub"/>
+<object type="application/x-shockwave-flash" width="320" height="20" data="http://forgetoday.com/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-the-Media-Hub">
+<param name="movie" value="http://forgetoday.com/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-The-Media-Hub"/>
 </object>
 </p>
 </body>
