@@ -44,8 +44,13 @@ body {
 <p><img class="webcam" /></p>
 <p><div class="now-playing"></div></p>
 <p>
-<object type="application/x-shockwave-flash" width="320" height="20" data="http://forgetoday.com/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-the-Media-Hub">
-<param name="movie" value="http://forgetoday.com/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-The-Media-Hub"/>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52" bgcolor="#FFFFFF">
+<param name="movie" value="ffmp3-config.swf" />
+<param name="flashvars" value="url=http://icecast.commedia.org.uk:8000/sure.mp3&lang=auto&codec=mp3&volume=100&introurl=&autoplay=true&tracking=false&jsevents=false&buffering=5&skin=ffmp3-skin.xml&title=Forge%20Radio" />
+<param name="wmode" value="window" />
+<param name="allowscriptaccess" value="always" />
+<param name="scale" value="noscale" />
+<embed src="ffmp3-config.swf" flashvars="url=http://icecast.commedia.org.uk:8000/sure.mp3&lang=auto&codec=mp3&volume=100&introurl=&autoplay=true&tracking=false&jsevents=false&buffering=5&skin=ffmp3-skin.xml&title=Forge%20Radio" width="269" scale="noscale" height="52" wmode="window" bgcolor="#FFFFFF" allowscriptaccess="always" type="application/x-shockwave-flash" />
 </object>
 </p>
 </body>
