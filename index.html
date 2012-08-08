@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Forge Radio player</title>
+<script type="text/javascript" src="http://forgetoday.com/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript">
+	function goodtimes(){
+		jQuery(".now-playing").load('http://forgetoday.com/wp-content/plugins/showtime/show.php');
+		setTimeout('goodtimes()', 300000);
+	}
+	function webcam(){
+		jQuery(".webcam").attr('src','http://forgewebcam.site11.com/webcam/cam_1.jpg?' + new Date().valueOf());
+		setTimeout('webcam()', 30000);
+	}
+	jQuery(document).ready(function($) {
+		$(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
+		goodtimes();
+		webcam();
+	});
+</script>
+
+<style type="text/css">
+body {
+	margin: 10px;
+}
+
+.current-show {
+	font-weight: bold;
+}
+
+/* Hide show image */
+.current-show > br, .showtime-display-image {
+	display: none;
+}
+
+#shows {
+	list-style-type: none;
+	padding-left: 0;
+	color: #555555;
+	font: 14px/20px Arial,Helvetica,Sans-serif;
+}
+</style>
+</head>
+
+<body background="http://imageshack.us/photo/my-images/6/playerbackz.jpg"> 
+<p><img src="http://www.forgetoday.com/player/nowplay.png" alt="Listen Live" /></p>
+<p><img class="webcam" /></p>
+<p><div class="now-playing"></div></p>
+<p>
+<object type="application/x-shockwave-flash" width="320" height="20" data="http://forgetoday.info/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-the-Media-Hub">
+<param name="movie" value="http://forgetoday.info/player/xspf_player_slim.swf?song_url=http://icecast.commedia.org.uk:8000/sure.mp3&autoplay=1&player_title=ForgeRadio&song_title=Streaming-live-from-The-Media-Hub"/>
+</object>
+</p>
+</body>
+</html>
