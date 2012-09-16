@@ -20,6 +20,13 @@
 <style type="text/css">
 body {
 	margin: 10px;
+	color: #555555;
+	font: 14px/20px Arial,Helvetica,Sans-serif;
+}
+
+/* Fallback styling if header image missing */
+#header {
+	font-size: 2em;
 }
 
 .current-show {
@@ -34,23 +41,21 @@ body {
 #shows {
 	list-style-type: none;
 	padding-left: 0;
-	color: #555555;
-	font: 14px/20px Arial,Helvetica,Sans-serif;
 }
 </style>
 </head>
 <body>
-<p><img src="http://www.forgetoday.com/player/images/nowplay.png" alt="Listen Live" /></p>
-<p><img class="webcam" /></p>
-<p><div class="now-playing"></div></p>
+<p><img id="header" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Now Playing" /></p>
+<p><img class="webcam" src="" alt="Webcam is offline" /></p>
+<p><span class="now-playing"></span></p>
 <p>
-<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52" bgcolor="#FFFFFF">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52">
 <param name="movie" value="ffmp3-config.swf" />
-<param name="flashvars" value="url=http://icecast.commedia.org.uk:8000/sure.mp3&lang=auto&codec=mp3&volume=100&introurl=&autoplay=true&tracking=false&jsevents=false&buffering=5&skin=ffmp3-skin.xml&title=Forge%20Radio" />
+<param name="flashvars" value="url=http://radio.canstream.co.uk:8021/live.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" />
 <param name="wmode" value="window" />
 <param name="allowscriptaccess" value="always" />
 <param name="scale" value="noscale" />
-<embed src="ffmp3-config.swf" flashvars="url=http://icecast.commedia.org.uk:8000/sure.mp3&lang=auto&codec=mp3&volume=100&introurl=&autoplay=true&tracking=false&jsevents=false&buffering=5&skin=ffmp3-skin.xml&title=Forge%20Radio" width="269" scale="noscale" height="52" wmode="window" bgcolor="#FFFFFF" allowscriptaccess="always" type="application/x-shockwave-flash" />
+<embed src="ffmp3-config.swf" flashvars="url=http://radio.canstream.co.uk:8021/live.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" width="269" scale="noscale" height="52" wmode="window" bgcolor="#FFFFFF" allowscriptaccess="always" type="application/x-shockwave-flash" />
 </object>
 </p>
 </body>
