@@ -5,16 +5,16 @@
 <script type="text/javascript">
 	function goodtimes(){
 		jQuery(".now-playing").load('http://forgetoday.com/wp-content/plugins/showtime/show.php');
-		setTimeout("goodtimes()", 300000);
+		setTimeout(goodtimes, 300000);
 	}
 	function webcam(){
-		jQuery(".webcam").attr('src','http://forgetoday.com/webcam/cam_1.jpg?' + new Date().valueOf());
-		setTimeout("webcam()", 30000);
+		jQuery(".webcam").attr('src','http://143.167.135.189/IMAGE.JPG?' + new Date().valueOf());
+		setTimeout(webcam, 30000);
 	}
-	jQuery(document).ready(function($) {
-		$(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
+	jQuery(document).ready(function() {
+		jQuery(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
 		goodtimes();
-//		webcam();
+		webcam();
 	});
 </script>
 <style type="text/css">
@@ -24,7 +24,8 @@ body {
 	font: 14px/20px Arial,Helvetica,Sans-serif;
 }
 
-#listen-live {
+/* Fallback styling if header image missing */
+#header {
 	font-size: 2em;
 }
 
@@ -44,8 +45,8 @@ body {
 </style>
 </head>
 <body>
-<p><img id="listen-live" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Listen Live" /></p>
-<p><img class="webcam" src="" alt="Webcam is offline" /></p>
+<p><img id="header" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Now Playing" /></p>
+<p><img class="webcam" src="" alt="Webcam unavailable" /></p>
 <p><span class="now-playing"></span></p>
 <p>
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52">
