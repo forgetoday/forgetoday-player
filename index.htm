@@ -5,16 +5,16 @@
 <script type="text/javascript">
 	function goodtimes(){
 		jQuery(".now-playing").load('http://forgetoday.com/wp-content/plugins/showtime/show.php');
-		setTimeout(goodtimes, 300000);
+		setTimeout("goodtimes()", 300000);
 	}
 	function webcam(){
-		jQuery(".webcam").attr('src','http://143.167.135.189/IMAGE.JPG?' + new Date().valueOf());
-		setTimeout(webcam, 30000);
+		jQuery(".webcam").attr('src','http://forgetoday.com/webcam/cam_1.jpg?' + new Date().valueOf());
+		setTimeout("webcam()", 30000);
 	}
-	jQuery(document).ready(function() {
-		jQuery(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
+	jQuery(document).ready(function($) {
+		$(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
 		goodtimes();
-		webcam();
+//		webcam();
 	});
 </script>
 <style type="text/css">
@@ -24,8 +24,7 @@ body {
 	font: 14px/20px Arial,Helvetica,Sans-serif;
 }
 
-/* Fallback styling if header image missing */
-#header {
+#listen-live {
 	font-size: 2em;
 }
 
@@ -45,17 +44,17 @@ body {
 </style>
 </head>
 <body>
-<p><img id="header" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Now Playing" /></p>
-<p><img class="webcam" src="" alt="Webcam unavailable" /></p>
+<p><img id="listen-live" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Listen Live" /></p>
+<p><img class="webcam" src="" alt="Webcam is offline" /></p>
 <p><span class="now-playing"></span></p>
 <p>
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52">
 <param name="movie" value="ffmp3-config.swf" />
-<param name="flashvars" value="url=http://radio.canstream.co.uk:8021/live.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" />
+<param name="flashvars" value="url=http://radio.canstream.co.uk:8021/forgeradio.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" />
 <param name="wmode" value="window" />
 <param name="allowscriptaccess" value="always" />
 <param name="scale" value="noscale" />
-<embed src="ffmp3-config.swf" flashvars="url=http://radio.canstream.co.uk:8021/live.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" width="269" scale="noscale" height="52" wmode="window" bgcolor="#FFFFFF" allowscriptaccess="always" type="application/x-shockwave-flash" />
+<embed src="ffmp3-config.swf" flashvars="url=http://radio.canstream.co.uk:8021/forgeradio.mp3&amp;lang=auto&amp;codec=mp3&amp;volume=100&amp;introurl=&amp;autoplay=true&amp;tracking=false&amp;jsevents=false&amp;buffering=5&amp;skin=ffmp3-skin.xml&amp;title=Forge%20Radio" width="269" scale="noscale" height="52" wmode="window" bgcolor="#FFFFFF" allowscriptaccess="always" type="application/x-shockwave-flash" />
 </object>
 </p>
 </body>
