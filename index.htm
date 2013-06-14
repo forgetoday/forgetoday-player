@@ -3,19 +3,56 @@
 <title>Forge Radio player</title>
 <script type="text/javascript" src="http://forgetoday.com/wp-includes/js/jquery/jquery.js"></script>
 <script type="text/javascript">
-	function goodtimes(){
-		jQuery(".now-playing").load('http://forgetoday.com/wp-content/plugins/showtime/show.php');
-		setTimeout(goodtimes, 300000);
-	}
 	function webcam(){
-		jQuery(".webcam").attr('src','http://143.167.135.189/IMAGE.JPG?' + new Date().valueOf());
-		setTimeout(webcam, 30000);
+		jQuery(".webcam").attr('src','http://forgetoday.com/webcam/cam_1.jpg?' + new Date().valueOf());
+		setTimeout("webcam()", 30000);
 	}
-	jQuery(document).ready(function() {
-		jQuery(".now-playing").empty().html("<img src='http://forgetoday.com/wp-content/plugins/showtime/ajax-loader.gif'>");
-		goodtimes();
-		webcam();
+	function showtimeRedux(){
+		jQuery.getJSON("http://forgetoday.com/wp-admin/admin-ajax.php", {action: "showtime-now-playing"}, function(data){
+			if (data.current) {
+				if (data.current.image) {
+					html = data.current.link ? '<a href="' + data.current.link + '">' : '';
+					html += '<img src="' + data.current.image + '" />';
+					if (data.current.link) { html += '</a>'; }
+					jQuery(".showtime-current-img").html(html);
+				} else {
+					jQuery(".showtime-current-img").empty();
+				}
+
+				html = data.current.link ? '<a href="' + data.current.link + '">' : '';
+				html += data.current.name;
+				if (data.current.link) { html += '</a>'; }
+				jQuery(".showtime-current-text").html(html);
+			} else {
+				jQuery(".showtime-current-text").html('<span class="off-air"></span>');
+			}
+
+			if (data.upcoming) {
+				if (data.upcoming.image) {
+					html = data.upcoming.link ? '<a href="' + data.upcoming.link + '">' : '';
+					html += '<img src="' + data.upcoming.image + '" />';
+					if (data.upcoming.link) { html += '</a>'; }
+					jQuery(".showtime-upcoming-img").html(html);
+				} else {
+					jQuery(".showtime-upcoming-img").empty();
+				}
+
+				html = data.upcoming.link ? '<a href="' + data.upcoming.link + '">' : '';
+				html += data.upcoming.name;
+				if (data.upcoming.link) { html += '</a>'; }
+				jQuery(".showtime-upcoming-text").html(html);
+			} else {
+				jQuery(".showtime-upcoming-text").empty();
+			}
+		});
+
+		setTimeout(showtimeRedux, 300000);
+	}
+	jQuery(document).ready(function($) {
+		showtimeRedux();
+//		webcam();
 	});
+</script>
 </script>
 <style type="text/css">
 body {
@@ -24,8 +61,7 @@ body {
 	font: 14px/20px Arial,Helvetica,Sans-serif;
 }
 
-/* Fallback styling if header image missing */
-#header {
+#listen-live {
 	font-size: 2em;
 }
 
@@ -42,12 +78,23 @@ body {
 	list-style-type: none;
 	padding-left: 0;
 }
+
+.showtime-current-text:before {
+	content: "Now on: ";
+	font-weight: bold;
+}
+
+.showtime-upcoming-text:before {
+	content: "Upcoming: ";
+	font-weight: bold;
+}
 </style>
 </head>
 <body>
-<p><img id="header" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Now Playing" /></p>
-<p><img class="webcam" src="" alt="Webcam unavailable" /></p>
-<p><span class="now-playing"></span></p>
+<p><img id="listen-live" src="http://www.forgetoday.com/player/images/nowplay.png" alt="Listen Live" /></p>
+<p><img class="webcam" src="" alt="Webcam is offline" /></p>
+<p class="showtime-current-text"></p>
+<p class="showtime-upcoming-text"></p>
 <p>
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="269" height="52">
 <param name="movie" value="ffmp3-config.swf" />
